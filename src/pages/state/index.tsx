@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import { useParams } from "react-router-dom";
 
-import { Container, InfoHeader, InfoContainer, InfoWrapper } from './style';
+import { Container, InfoHeader, InfoContainer, InfoWrapper, InfoLabel, InfoData } from './style';
 import { fetchCovidData } from 'api/covid'
 
 interface ParamTypes {
-    sigla: string;
+    uf: string;
 }
 
 interface ICovidData {
@@ -21,12 +21,12 @@ interface ICovidData {
 }
 
 const StatePage: React.FC = () => {
-    const { sigla } = useParams<ParamTypes>();
+    const { uf } = useParams<ParamTypes>();
     const [ covidData, setCovidData ] = useState<ICovidData>();
 
     useEffect(() => {
         (async () => {
-            const data = await fetchCovidData(sigla);
+            const data = await fetchCovidData(uf);
             setCovidData(data);
         })()
     }, []);
@@ -34,24 +34,24 @@ const StatePage: React.FC = () => {
     return (
         <Container>
             <InfoHeader>
-                Informações do estado {sigla}
+                Informações do estado {uf}
             </InfoHeader>
             <InfoContainer>
                 <InfoWrapper borderColor={'green'}>
-                    <p>Confirmados</p>
-                    <span>{covidData ? covidData.cases : 0}</span>
+                    <InfoLabel>Confirmados</InfoLabel>
+                    <InfoData>{covidData ? covidData.cases : 0}</InfoData>
                 </InfoWrapper>
                 <InfoWrapper borderColor={'blue'}>
-                    <p>Suspeitos</p>
-                    {covidData ? covidData.suspects : 0}
+                    <InfoLabel>Suspeitos</InfoLabel>
+                    <InfoData>{covidData ? covidData.suspects : 0}</InfoData>
                 </InfoWrapper>
                 <InfoWrapper borderColor={'red'}>
-                    <p>Negados</p>
-                    {covidData ? covidData.refuses : 0}
+                    <InfoLabel>Negados</InfoLabel>
+                    <InfoData>{covidData ? covidData.refuses : 0}</InfoData>
                 </InfoWrapper>
                 <InfoWrapper borderColor={'black'}>
-                    <p>Mortes</p>
-                    {covidData ? covidData.deaths : 0}
+                    <InfoLabel>Mortes</InfoLabel>
+                    <InfoData>{covidData ? covidData.deaths : 0}</InfoData>
                 </InfoWrapper>
             </InfoContainer>
         </Container> 

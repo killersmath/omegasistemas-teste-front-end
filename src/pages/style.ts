@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Select from 'react-select'
+
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -17,5 +19,33 @@ export const FormContainer = styled.div`
     flex-direction: column;
 `
 
+export const FormHeader = styled.div`
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0px;
+`
+
 export const Form = styled.form`
+`
+
+export const FormGroup = styled.div`
+    width: 150px;
+`
+
+export const FormLabel = styled.label`
+`
+
+export const FormInput = styled.input`
+    color: palevioletred;
+    font-size: 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    padding: 5px 5px;
+    background: #ffffff;
+    outline: none;
+`
+
+export const StateSelect = styled(Select)`
+    width: 100%;
+    max-width: 190px;
 `

@@ -16,7 +16,7 @@ const routes : IRoute[] = [
         exact: true
     },
     {
-        path: '/estados/:sigla',
+        path: '/estado/:uf',
         component: StatePage,
         exact: true
     }
