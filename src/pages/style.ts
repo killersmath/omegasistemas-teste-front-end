@@ -7,12 +7,61 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+`
+
+export const HighestIndiceContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+`;
+
+export const HighestIndiceHeader = styled.p`
+    font-size: 18px;
+    font-weight: 700;
+`;
+
+export const HighestIndiceContent = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 15px;
+`;
+
+export const HighestIndiceWrapper = styled.div<{color?: string}>`
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 1x solid #c9c9c9;
+    border-bottom: 5px solid ${props=>(props.color ? props.color : 'black' )};
+    border-top: 5px solid ${props=>(props.color ? props.color : 'black' )};
+
+    & > label {
+        font-weight: bold;
+        display: block;
+    }
+
+    & > span {
+
+    }
+`;
+
+export const Info = styled.div`
+    color: #721c24;
+    background-color: #f0f7fb;
+    border: solid 1px #3498db;
+    border-radius: 6px;
+    line-height: 18px;
+    padding: 15px 60px;
 `
 
 export const FormContainer = styled.div`
     width: 350px;
-    height: 350px;
+    height: auto;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -23,26 +72,6 @@ export const FormHeader = styled.div`
     font-size: 16px;
     font-weight: 600;
     padding: 10px 0px;
-`
-
-export const Form = styled.form`
-`
-
-export const FormGroup = styled.div`
-    width: 150px;
-`
-
-export const FormLabel = styled.label`
-`
-
-export const FormInput = styled.input`
-    color: palevioletred;
-    font-size: 1em;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    padding: 5px 5px;
-    background: #ffffff;
-    outline: none;
 `
 
 export const StateSelect = styled(Select)`
